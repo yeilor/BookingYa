@@ -13,17 +13,18 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ReservaTest {
 
     private static ReservaService service = new ReservaService();
-    private static Reserva reserva;;
+    private static Reserva reserva;
+    ;
 
 
     //Creación de una reserva
     @Test
     @Order(1)
     void testCreateReserva() {
-        reserva = new Reserva("Juan", "2026-05-01");
+        reserva = new Reserva("Yeimy Marin", "2026-05-01");
         Reserva resultado = service.crearReserva(reserva);
 
-        System.out.println("Reserva creada con ID: " + resultado.getId()  + " | Nombre Usuario: " + resultado.getUsuario());
+        System.out.println("Reserva creada con ID: " + resultado.getId() + " | Nombre Usuario: " + resultado.getUsuario());
 
         assertNotNull(resultado);
     }
@@ -31,7 +32,7 @@ public class ReservaTest {
     @Test
     @Order(2)
     void testGetReservaPorUsuario() {
-        Reserva resultado = service.obtenerPorUsuario("Juan");
+        Reserva resultado = service.obtenerPorUsuario("Yeimy Marin");
 
         System.out.println("Nombre Usuario: " + resultado.getUsuario());
 
@@ -51,12 +52,14 @@ public class ReservaTest {
     @Test
     @Order(4)
     void testUpdateReserva() {
-        reserva.setUsuario("Carlos");
-        Reserva actualizada = service.actualizar(reserva, reserva.getId());
+        Reserva existente = service.obtenerPorId(reserva.getId());
+        existente.setUsuario("Adri Sosa");
+        Reserva actualizada = service.actualizar(existente, existente.getId());
 
-        System.out.println("Nombre Actualizado: " + actualizada.getUsuario());
+        System.out.println("Nombre Actualizado: " + actualizada.getUsuario() + " | ID: " + actualizada.getId());
 
-        assertEquals("Carlos", actualizada.getUsuario());
+        assertNotNull(actualizada);
+        assertEquals("Adri Sosa", actualizada.getUsuario());
     }
 
     @Test
@@ -67,7 +70,6 @@ public class ReservaTest {
         System.out.println("Reserva eliminada con ID: " + reserva.getId());
 
         Reserva resultado = service.obtenerPorId(reserva.getId());
-
         assertNull(resultado);
     }
 }
