@@ -1,4 +1,4 @@
-package com.project.bookingya;
+package com.project.bookingya.tdd;
 
 public class Reserva {
 
@@ -24,5 +24,8 @@ public class Reserva {
 
     public void setUsuario(String usuario) {
         this.usuario = usuario;
+    }
+    public String getFecha() {
+        return fecha;
     }
 }

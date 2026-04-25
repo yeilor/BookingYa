@@ -1,4 +1,4 @@
-package com.project.bookingya;
+package com.project.bookingya.tdd;
 
 import java.util.ArrayList;
 import java.util.List;
