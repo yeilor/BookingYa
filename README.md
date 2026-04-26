@@ -1,4 +1,4 @@
-# BookingYa_tdd
+# BookingYa
 Proyecto BookingYa TDD - gestión de reservas (Fase 1)
 
 # DESCRIPCIÓN
