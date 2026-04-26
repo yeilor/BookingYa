@@ -39,4 +39,8 @@ public class ReservaService {
     public void eliminar(int id) {
         reservas.removeIf(r -> r.getId() == id);
     }
+
+    public List<Reserva> obtenerTodas() {
+        return reservas;
+    }
 }

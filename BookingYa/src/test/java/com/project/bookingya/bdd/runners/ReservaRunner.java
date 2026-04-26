@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         features = "src/test/resources/features",
-        glue = "stepdefinitions",
+        glue = "com.project.bookingya.bdd.stepDefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 public class ReservaRunner {
