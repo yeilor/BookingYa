@@ -1,0 +1,46 @@
+name: CI - BookingYa
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      # ===== JAVA =====
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Ejecutar tests Java (TDD + BDD)
+        run: mvn clean test
+
+      # ===== NODE / PLAYWRIGHT =====
+      - name: Configurar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Instalar dependencias Playwright
+        run: |
+          cd BookingYa/playwright
+          npm install
+
+      - name: Instalar navegadores
+        run: |
+          cd BookingYa/playwright
+          npx playwright install --with-deps
+
+      - name: Ejecutar tests ATDD (Playwright)
+        run: |
+          cd BookingYa/playwright
+          npx playwright test
