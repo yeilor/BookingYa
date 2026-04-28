@@ -35,7 +35,7 @@ public class ReservaStepDefinitions {
     public void envíaLaSolicitudParaCrearLaReserva() {
         reservaResponse = service.crearReserva(reservaRequest);
 
-        // simulación de HTTP status
+        // Simulación de HTTP status
         responseStatus = (reservaResponse != null) ? 201 : 400;
     }
 

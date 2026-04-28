@@ -25,11 +25,12 @@ public class Reserva {
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
+
     public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha){
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 }
