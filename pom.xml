@@ -83,10 +83,7 @@
         <plugins>
 
             <!-- SPRING BOOT PLUGIN -->
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
+
 
             <!-- SERENITY REPORTS -->
             <plugin>
@@ -106,6 +103,4 @@
 
         </plugins>
     </build>
-
 </project>
-
